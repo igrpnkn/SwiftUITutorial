@@ -11,6 +11,7 @@
 		3ABA3A942CF23BEE009B68DE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABA3A932CF23BEE009B68DE /* ContentView.swift */; };
 		3ABA3A962CF23BEF009B68DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3ABA3A952CF23BEF009B68DE /* Assets.xcassets */; };
 		3ABA3A992CF23BEF009B68DE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3ABA3A982CF23BEF009B68DE /* Preview Assets.xcassets */; };
+		3ABA3AA02CF24F0C009B68DE /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABA3A9F2CF24F0C009B68DE /* CircleImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		3ABA3A932CF23BEE009B68DE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3ABA3A952CF23BEF009B68DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3ABA3A982CF23BEF009B68DE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3ABA3A9F2CF24F0C009B68DE /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 				3ABA3A932CF23BEE009B68DE /* ContentView.swift */,
 				3ABA3A952CF23BEF009B68DE /* Assets.xcassets */,
 				3ABA3A972CF23BEF009B68DE /* Preview Content */,
+				3ABA3A9F2CF24F0C009B68DE /* CircleImage.swift */,
 			);
 			path = SwiftUITutorial;
 			sourceTree = "<group>";
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3ABA3AA02CF24F0C009B68DE /* CircleImage.swift in Sources */,
 				3ABA3A942CF23BEE009B68DE /* ContentView.swift in Sources */,
 				3ABA3A922CF23BEE009B68DE /* SwiftUITutorialApp.swift in Sources */,
 			);
