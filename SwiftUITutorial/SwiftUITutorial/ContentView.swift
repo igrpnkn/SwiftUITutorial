@@ -8,22 +8,38 @@
 import SwiftUI
 
 struct ContentView: View {
+    private let mapHeight: CGFloat = 300
+    private let imageOffset: CGFloat = 130
+
     var body: some View {
-        VStack(alignment: .leading) {
-            Text("Turtle Rock")
-                .font(.title)
-                .foregroundStyle(.black)
-            HStack {
-                Text("Joshua Tree National Park")
+        VStack {
+            MapView()
+                .frame(height: mapHeight)
+            CircleImage()
+                .offset(y: -imageOffset)
+                .padding(.bottom, -imageOffset)
+            VStack(alignment: .leading) {
+                Text("Turtle Rock")
+                    .font(.title)
+                    .foregroundStyle(.black)
+                HStack {
+                    Text("Joshua Tree National Park")
+                    Spacer()
+                    Text("California")
+                }
                     .font(.subheadline)
                     .foregroundStyle(.black)
-                Spacer()
-                Text("California")
+                    .padding(.bottom)
+                Divider()
+                Text("About Turtle Rock")
+                    .font(.title2)
+                    .padding(.top)
+                Text("Descriptive text goes here...")
                     .font(.subheadline)
-                    .foregroundStyle(.black)
             }
+                .padding()
+            Spacer()
         }
-        .padding()
     }
 }
 
