@@ -11,9 +11,15 @@ struct LandmarkDetail: View {
     private let mapHeight: CGFloat = 300
     private let imageOffset: CGFloat = 130
 
+    @Environment(ModelData.self) var modelData
     var landmark: Landmark
 
+    var landmarkIndex: Int {
+        modelData.landmarks.firstIndex { $0.id == landmark.id }!
+    }
+
     var body: some View {
+        @Bindable var modelData = modelData
         ScrollView {
             MapView(coordinate: landmark.locationCoordinate)
                 .frame(height: mapHeight)
@@ -21,9 +27,12 @@ struct LandmarkDetail: View {
                 .offset(y: -imageOffset)
                 .padding(.bottom, -imageOffset)
             VStack(alignment: .leading) {
-                Text(landmark.name)
-                    .font(.title)
-                    .foregroundStyle(.black)
+                HStack {
+                    Text(landmark.name)
+                        .font(.title)
+                        .foregroundStyle(.black)
+                    FavoriteButton(isSet: $modelData.landmarks[landmarkIndex].isFavorite)
+                }
                 HStack {
                     Text(landmark.park)
                     Spacer()
@@ -48,5 +57,7 @@ struct LandmarkDetail: View {
 }
 
 #Preview {
-    LandmarkDetail(landmark: ModelData().landmarks.first!)
+    let modelData = ModelData()
+    return LandmarkDetail(landmark: modelData.landmarks.first!)
+            .environment(modelData)
 }
