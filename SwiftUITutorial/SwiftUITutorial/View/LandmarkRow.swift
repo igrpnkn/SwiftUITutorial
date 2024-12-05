@@ -26,8 +26,9 @@ struct LandmarkRow: View {
 }
 
 #Preview {
-    Group {
-        LandmarkRow(landmark: landmarks.first!)
-        LandmarkRow(landmark: landmarks.last!)
+    let modelData = ModelData()
+    return Group {
+        LandmarkRow(landmark: modelData.landmarks.first!)
+        LandmarkRow(landmark: modelData.landmarks.last!)
     }
 }
