@@ -43,6 +43,7 @@ struct HikeView: View {
 
             if showDetail {
                 HikeDetail(hike: hike)
+                    .transition(.moveAndFade)
             }
         }
     }
@@ -53,5 +54,14 @@ struct HikeView: View {
         HikeView(hike: ModelData().hikes[0])
             .padding()
         Spacer()
+    }
+}
+
+extension AnyTransition {
+    static var moveAndFade: AnyTransition {
+        .asymmetric(
+            insertion: .move(edge: .trailing).combined(with: .opacity),
+            removal: .scale.combined(with: .opacity)
+        )
     }
 }
