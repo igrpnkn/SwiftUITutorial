@@ -16,6 +16,9 @@ struct Landmark: Hashable, Codable, Identifiable {
     var state: String
     var description: String
     var isFavorite: Bool
+    var isFeatured: Bool
+
+    var category: Category
 
     private var imageName: String
     private var coordinates: Coordinates
@@ -36,5 +39,13 @@ extension Landmark {
     struct Coordinates: Hashable, Codable {
         var latitude: Double
         var longitude: Double
+    }
+}
+
+extension Landmark {
+    enum Category: String, CaseIterable, Codable {
+        case lakes = "Lakes"
+        case rivers = "Rivers"
+        case mountains = "Mountains"
     }
 }
