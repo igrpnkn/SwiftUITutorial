@@ -15,10 +15,14 @@ final class ModelData {
     var categories: [String: [Landmark]] {
         Dictionary(grouping: landmarks) { $0.category.rawValue }
     }
+
+    var features: [Landmark] {
+        landmarks.filter { $0.isFeatured }
+    }
 }
 
 
-func load<T: Decodable>(_ filename: String) -> T {
+fileprivate func load<T: Decodable>(_ filename: String) -> T {
     let data: Data
 
 
