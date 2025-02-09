@@ -30,6 +30,7 @@
 		3A60C98C2D58AEBB00B4F5D5 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A60C98B2D58AEBB00B4F5D5 /* PageViewController.swift */; };
 		3A60C98E2D58B18600B4F5D5 /* FeatureCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A60C98D2D58B18600B4F5D5 /* FeatureCard.swift */; };
 		3A60C9902D58B52800B4F5D5 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A60C98F2D58B52800B4F5D5 /* PageView.swift */; };
+		3A60C9922D58C56200B4F5D5 /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A60C9912D58C56200B4F5D5 /* PageControl.swift */; };
 		3A6BC8A42D020023007DD2D0 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6BC8A32D020023007DD2D0 /* FavoriteButton.swift */; };
 		3ABA3A922CF23BEE009B68DE /* SwiftUITutorialApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABA3A912CF23BEE009B68DE /* SwiftUITutorialApp.swift */; };
 		3ABA3A942CF23BEE009B68DE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABA3A932CF23BEE009B68DE /* ContentView.swift */; };
@@ -68,6 +69,7 @@
 		3A60C98B2D58AEBB00B4F5D5 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		3A60C98D2D58B18600B4F5D5 /* FeatureCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureCard.swift; sourceTree = "<group>"; };
 		3A60C98F2D58B52800B4F5D5 /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
+		3A60C9912D58C56200B4F5D5 /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
 		3A6BC8A32D020023007DD2D0 /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
 		3ABA3A8E2CF23BEE009B68DE /* SwiftUITutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUITutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ABA3A912CF23BEE009B68DE /* SwiftUITutorialApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITutorialApp.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				3A60C98B2D58AEBB00B4F5D5 /* PageViewController.swift */,
 				3A60C98D2D58B18600B4F5D5 /* FeatureCard.swift */,
 				3A60C98F2D58B52800B4F5D5 /* PageView.swift */,
+				3A60C9912D58C56200B4F5D5 /* PageControl.swift */,
 			);
 			path = PageView;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				3ABA3AA22CF250E1009B68DE /* MapView.swift in Sources */,
 				3A44BF5E2D562D7E0097AC44 /* GraphCapsule.swift in Sources */,
 				3ABA3A942CF23BEE009B68DE /* ContentView.swift in Sources */,
+				3A60C9922D58C56200B4F5D5 /* PageControl.swift in Sources */,
 				3A6BC8A42D020023007DD2D0 /* FavoriteButton.swift in Sources */,
 				3A44BF682D566DF20097AC44 /* CategoryItem.swift in Sources */,
 				3A44BF602D562D7E0097AC44 /* HikeDetail.swift in Sources */,
