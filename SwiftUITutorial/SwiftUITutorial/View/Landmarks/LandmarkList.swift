@@ -7,37 +7,82 @@
 
 import SwiftUI
 
+#Preview {
+    LandmarkList()
+        .environment(ModelData())
+}
+
 struct LandmarkList: View {
     @Environment(ModelData.self) var modelData
     @State private var showFavoritesOnly: Bool = false
-
-    private var filteredLandmarks: [Landmark] {
-        modelData.landmarks.filter { !showFavoritesOnly || $0.isFavorite }
-    }
+    @State private var filter: Self.FilterCategory = .all
+    @State private var selectedLandmark: Landmark?
 
     var body: some View {
+        @Bindable var modelData = modelData
+
         NavigationSplitView {
-            List {
-                Toggle(isOn: $showFavoritesOnly) {
-                    Text("Favorites only")
-                }
+            List(selection: $selectedLandmark) {
                 ForEach(filteredLandmarks) { landmark in
                     NavigationLink {
                         LandmarkDetail(landmark: landmark)
                     } label: {
                         LandmarkRow(landmark: landmark)
                     }
+                    .tag(landmark)
                 }
             }
-            .navigationTitle("Landmarks")
+            .navigationTitle(title)
             .animation(.default, value: filteredLandmarks)
+            .frame(minWidth: 300)
+            .toolbar {
+                ToolbarItem {
+                    Menu {
+                        Toggle(isOn: $showFavoritesOnly) {
+                            Label("Favorites only", systemImage: "star.fill")
+                        }
+                        Picker("Category", selection: $filter) {
+                            ForEach(FilterCategory.allCases) {
+                                Text($0.rawValue).tag($0)
+                            }
+                        }
+                        .pickerStyle(.inline)
+                    } label: {
+                        Label("Filter", systemImage: "slider.horizontal.3")
+                    }
+
+                }
+            }
         } detail: {
             Text("Select a Landmark")
         }
+        .focusedValue(\.selectedLandmark, $modelData.landmarks[index ?? .zero])
     }
 }
 
-#Preview {
-    LandmarkList()
-        .environment(ModelData())
+private extension LandmarkList {
+    enum FilterCategory: String, CaseIterable, Identifiable {
+        case all = "All"
+        case lakes = "Lakes"
+        case rivers = "Rivers"
+        case mountains = "Mountains"
+
+        var id: FilterCategory { self }
+    }
+
+    var filteredLandmarks: [Landmark] {
+        modelData.landmarks.filter {
+            (!showFavoritesOnly || $0.isFavorite) &&
+            (filter == .all || filter.rawValue == $0.category.rawValue)
+        }
+    }
+
+    var title: String {
+        let title = filter == .all ? "Landmarks" : filter.rawValue
+        return showFavoritesOnly ? "Favorite \(title)" : title
+    }
+
+    var index: Int? {
+        modelData.landmarks.firstIndex { $0.id == selectedLandmark?.id }
+    }
 }

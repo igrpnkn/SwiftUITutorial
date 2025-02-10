@@ -9,6 +9,9 @@ import SwiftUI
 import MapKit
 
 struct MapView: View {
+    @AppStorage(MapView.appStorageZoomKey)
+    private var zoom: Zoom = .medium
+
     var coordinate: CLLocationCoordinate2D
 
     var body: some View {
@@ -16,12 +19,35 @@ struct MapView: View {
     }
 }
 
-private extension MapView {
-    var region: MKCoordinateRegion {
+extension MapView {
+    static let appStorageZoomKey: String = "MapView.zoom"
+
+    private var region: MKCoordinateRegion {
         MKCoordinateRegion(
             center: coordinate,
-            span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
+            span: MKCoordinateSpan(latitudeDelta: delta, longitudeDelta: delta)
         )
+    }
+
+    enum Zoom: String, CaseIterable, Identifiable {
+        case near = "Near"
+        case medium = "Medium"
+        case far = "Far"
+
+        var id: Zoom {
+            return self
+        }
+    }
+
+    var delta: CLLocationDegrees {
+        switch zoom {
+        case .near:
+            return 0.02
+        case .medium:
+            return 0.2
+        case .far:
+            return 2
+        }
     }
 }
 
