@@ -1,6 +1,6 @@
 //
 //  LandmarkList.swift
-//  MacLandmarks
+//  WatchLandmarks Watch App
 //
 //  Created by Igor Penkin on 10.02.2025.
 //
