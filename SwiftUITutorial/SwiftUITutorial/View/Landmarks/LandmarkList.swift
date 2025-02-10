@@ -16,16 +16,20 @@ struct LandmarkList: View {
     @Environment(ModelData.self) var modelData
     @State private var showFavoritesOnly: Bool = false
     @State private var filter: Self.FilterCategory = .all
+    @State private var selectedLandmark: Landmark?
 
     var body: some View {
+        @Bindable var modelData = modelData
+
         NavigationSplitView {
-            List {
+            List(selection: $selectedLandmark) {
                 ForEach(filteredLandmarks) { landmark in
                     NavigationLink {
                         LandmarkDetail(landmark: landmark)
                     } label: {
                         LandmarkRow(landmark: landmark)
                     }
+                    .tag(landmark)
                 }
             }
             .navigationTitle(title)
@@ -52,6 +56,7 @@ struct LandmarkList: View {
         } detail: {
             Text("Select a Landmark")
         }
+        .focusedValue(\.selectedLandmark, $modelData.landmarks[index ?? .zero])
     }
 }
 
@@ -75,5 +80,9 @@ private extension LandmarkList {
     var title: String {
         let title = filter == .all ? "Landmarks" : filter.rawValue
         return showFavoritesOnly ? "Favorite \(title)" : title
+    }
+
+    var index: Int? {
+        modelData.landmarks.firstIndex { $0.id == selectedLandmark?.id }
     }
 }
